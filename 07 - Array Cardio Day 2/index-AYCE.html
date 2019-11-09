@@ -44,16 +44,28 @@
 
         /// Some and Every Checks
         // Array.prototype.some() // is at least one person 19?
+        const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+        console.log({
+            isAdult
+        });
 
         // Array.prototype.every() // is everyone 19?
+        const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+        console.log({
+            allAdults
+        });
 
         // Array.prototype.find()
         // Find is like filter, but instead returns just the one you are looking for
         // find the comment with the ID of 823423
+        const comment = comments.find(comment => comment.id === 823423);
+        console.log(comment);
 
-        // Array.prototype.findIndex()
-        // Find the comment with this ID
-        // delete the comment with the ID of 823423
+        console.log(comments)
+            // Array.prototype.findIndex()
+            // Find the comment with this ID
+            // delete the comment with the ID of 823423
+        const index = comments.findIndex(comment => comment.id === 823423);
 
         // comments.splice(index, 1);
         const newComments = [
@@ -61,6 +73,18 @@
             ...comments.slice(index + 1)
         ];
         console.log(newComments)
+
+        let ranges = [
+            [0, 10],
+            [15, 20]
+        ]
+        const result = ranges.flatMap(items => {
+            let result = [];
+            for (let i = items[0]; i <= items[1]; i++) {
+                result.push(i);
+            }
+            return result;
+        });
     </script>
 </body>
 
